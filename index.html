@@ -457,6 +457,7 @@ async function initPWAVista(){
   const installed = await detectInstalled();
   if (installed){
     showView('view-bienvenida');
+    startTypingLoop();  // ← aquí se arranca el texto automático
   } else {
     showView('view-instalar');
     updateInstallButtonsVisibility();
