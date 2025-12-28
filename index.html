@@ -285,8 +285,7 @@ function showView(id){
 
 /* ================== TYPING EFFECT ================== */
 const typingMessage =
-  'Muy pronto estarán disponibles todas las funcionalidades de la APP DIEGO ESCOBAR GUINEA, ' +
-  'te estaré avisando desde mis redes sociales.';
+  'Muy pronto tendrás acceso a todas las funcionalidades desde esta App.';
 
 let typingIndex = 0;
 let typingDirection = 1; // 1 = escribe, -1 = borra
@@ -296,7 +295,7 @@ function startTypingLoop(){
   const el = document.getElementById('typing-text');
   if (!el) return;
 
-  function step(){
+  function tick(){
     if (!typingPause){
       if (typingDirection === 1){
         typingIndex++;
@@ -321,11 +320,12 @@ function startTypingLoop(){
       }
       el.textContent = typingMessage.slice(0, typingIndex);
     }
-    requestAnimationFrame(()=>{
-      setTimeout(step, 45); // velocidad de typing
-    });
+
+    // vuelve a llamar con un pequeño retraso
+    setTimeout(tick, 45);
   }
-  step();
+
+  tick(); // inicia el ciclo
 }
 
 /* ================== PWA AVANZADO ================== */
