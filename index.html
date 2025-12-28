@@ -477,7 +477,7 @@ document.getElementById('btn-instalar').addEventListener('click', async ()=>{
 async function initPWAVista(){
   const installed = await detectInstalled();
   if (installed){
-    showView('view-login');
+    showView('view-bienvenida');
   } else {
     showView('view-instalar');
     updateInstallButtonsVisibility();
